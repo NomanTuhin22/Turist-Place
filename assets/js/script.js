@@ -313,7 +313,13 @@ let r_card_Display = () => {
 }
 // review_Toggle**********Event*****
 review_Toggle.addEventListener('click', r_card_Display);
-
+// **********review icons color Event**********
+rating_I.forEach((value) => {
+    value.addEventListener('click', () => {
+        document.getElementById('reating_active')?.classList.remove('reating_active');
+        value.classList.add('reating_active');
+    })
+})
 // *********images_Select_Function**Event********
 list_images.forEach((value, index) => {
     value.addEventListener('click', () => {
