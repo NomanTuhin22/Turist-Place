@@ -259,10 +259,38 @@ let now_rating = document.getElementById('now_rating');
 let now_reviews = document.getElementById('now_reviews');
 let progress_bar = document.querySelectorAll('#progress_bar div span span');
 let review_Toggle = document.querySelector('#review_Toggle');
-// ***********destaination_menu*****Active*****
+
+// ***********display_Function**********
+let display_Function = (index) => {
+    for(let i = 0; i <= singapur_images.length; i++){
+        if(index == 0){
+         display_image_container.src = `./assets/images/${singapur_images[index]}`;
+         list_images[i].src=`./assets/images/${singapur_images[i]}`; 
+        }
+        else if(index == 1) {
+         display_image_container.src = `./assets/images/${thailand_images[index]}`;
+         list_images[i].src=`./assets/images/${thailand_images[i]}`; 
+        }
+        else if(index == 2) {
+         display_image_container.src = `./assets/images/${malaysia_images[index]}`;
+         list_images[i].src=`./assets/images/${malaysia_images[i]}`; 
+        }
+        else if(index == 3) {
+         display_image_container.src = `./assets/images/${astralia_images[index]}`;
+         list_images[i].src=`./assets/images/${astralia_images[i]}`; 
+        }
+        else if(index == 4) {
+         display_image_container.src = `./assets/images/${indonesia_images[index]}`;
+         list_images[i].src=`./assets/images/${indonesia_images[i]}`; 
+        }
+    }
+ }
+
+ // ***********destaination_menu*****Active*****
 destaination_menu.forEach((value, index) => {
     value.addEventListener('click', () => {
       document.querySelector('.activeBg')?.classList.remove('activeBg');
-     destaination_menu[index].classList.add('activeBg');
+      destaination_menu[index].classList.add('activeBg');
+      display_Function(index);
   })
 })
