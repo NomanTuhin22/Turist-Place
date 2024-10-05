@@ -285,7 +285,10 @@ let display_Function = (index) => {
         }
     }
  }
-
+ // ***********images_Select_Function**********
+let images_Select_Function = (value) => {
+    display_image_container.src =`${value.src}`;
+}
  // ***********destaination_menu*****Active*****
 destaination_menu.forEach((value, index) => {
     value.addEventListener('click', () => {
@@ -293,4 +296,10 @@ destaination_menu.forEach((value, index) => {
       destaination_menu[index].classList.add('activeBg');
       display_Function(index);
   })
+})
+// *********images_Select_Function**Event********
+list_images.forEach((value, index) => {
+    value.addEventListener('click', () => {
+        images_Select_Function(value, index);
+    })
 })
