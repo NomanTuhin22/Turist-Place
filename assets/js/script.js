@@ -18,7 +18,7 @@ toggle_btn.addEventListener('click', () => {
    }
 })
 
-// *****************all section slide F*************
+// *****************all selection slide F*************
 let body = document.querySelectorAll('#body .section');
 let tab_Btn = document.getElementById('tab_Btn');
 let test = document.getElementById('test');
@@ -52,3 +52,16 @@ let stay_Time = document.getElementById('stay_Time');
 let hotleDuration = document.getElementById('hotle_Duration');
 let hotleAmount = document.getElementById('hotle_Amount');
 let submit_btn = document.getElementById('submit_booking');
+// **********open_booking_Card_btn F*******/
+let open_booking_card_btn_F = () => {
+  booking_Card.classList.toggle('card-hidden');
+  booking_Card.style.visibility ='visible';
+}
+// **********open_booking_Card_btn E*******/
+open_booking_card_btn.addEventListener('click', open_booking_card_btn_F);
+// **********close_booking_card_btn F*******/
+let close_booking_card_F = () => {
+  booking_Card.style.visibility ='hidden';
+}
+// **********close_book_card_btn E*******/
+card_close_btn.addEventListener('click', close_booking_card_F);
