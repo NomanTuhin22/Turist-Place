@@ -320,6 +320,35 @@ rating_I.forEach((value) => {
         value.classList.add('reating_active');
     })
 })
+// ***********rating_Give_Function**********
+let rating_Give_Function = (value, index) => {
+    for(let i = 0; i <= index; i++){
+        value.classList.add('color_toggle');
+        now_rating.innerText =`2${i}k of ${i}`;
+        now_reviews.innerText =`3${i}k`;
+        if(index == 0){
+         progress_bar[index].style.paddingRight= '50%';
+        }
+        else if(index == 1){
+         progress_bar[index].style.paddingRight= '45%';
+        }
+        else if(index == 2){
+         progress_bar[index].style.paddingRight= '65%';
+        }
+        else if(index == 3){
+         progress_bar[index].style.paddingRight= '85%';
+        }
+        else if(index == 4){
+         progress_bar[index].style.paddingRight= '95%';
+        }
+    }
+ }
+ // *********images_Select_Function**Event********
+rating.forEach((value, index) => {
+    value.addEventListener('click', () => {
+        rating_Give_Function(value, index);
+    })
+})
 // *********images_Select_Function**Event********
 list_images.forEach((value, index) => {
     value.addEventListener('click', () => {
