@@ -242,3 +242,27 @@ hotle_submit_Data_Btn.addEventListener('click', (e) => {
   hotle_card_form.hotleDuration.value = '';
   hotle_card_form.hotleAmount.value = '';
 });
+
+// **********Popular Destination Images************
+let singapur_images = ['singapur-1.jpg','singapur-2.jpg','singapur-3.jpg','singapur-4.jpg','singapur-5.jpg'];
+let thailand_images = ['thailand-1.jpg','thailand-2.jpg','thailand-3.jpg','thailand-4.jpg','thailand-5.jpg'];
+let malaysia_images = ['malaysia-1.jpg','malaysia-2.jpg','malaysia-3.jpg','malaysia-4.jpg','malaysia-5.jpg'];
+let astralia_images = ['astralia-1.jpg','astralia-2.jpg','astralia-3.jpg','astralia-4.jpg','astralia-5.jpg'];
+let indonesia_images = ['indonesia-1.jpg','indonesia-2.jpg','indonesia-3.jpg','indonesia-4.jpg','indonesia-5.jpg'];
+// **********Popular Destination Selector************
+let destaination_menu = document.querySelectorAll('#destaination_menu ul li');
+let display_image_container = document.getElementById('display_image');
+let list_images = document.querySelectorAll('#list_images div img');
+let rating = document.querySelectorAll('#rating span');
+let rating_I = document.querySelectorAll('#rating span i');
+let now_rating = document.getElementById('now_rating');
+let now_reviews = document.getElementById('now_reviews');
+let progress_bar = document.querySelectorAll('#progress_bar div span span');
+let review_Toggle = document.querySelector('#review_Toggle');
+// ***********destaination_menu*****Active*****
+destaination_menu.forEach((value, index) => {
+    value.addEventListener('click', () => {
+      document.querySelector('.activeBg')?.classList.remove('activeBg');
+     destaination_menu[index].classList.add('activeBg');
+  })
+})
