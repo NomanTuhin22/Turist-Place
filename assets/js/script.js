@@ -146,7 +146,72 @@ let validation_Data = (visitor_Name, visiteId, cityName, stayTime) => {
       }       
   }
 }
-
+// ********hottle Reating Validation*********F***
+let h_Amount = document.getElementById('h_Amount');
+let hottle_Reating_Validation = (hotle_Amount) => {
+    if(hotle_Amount >= 50){
+       for(let i = 0; i <= 0;){
+        // class[classlist[abc]] not work 
+        hotle_Reviw[i].style.color = 'yellow';
+        h_Amount.placeholder='One Star Hotle';
+        i++;
+       }
+    }else{
+        alert('Not Fount Hotle');
+    }
+    if(hotle_Amount >= 100){
+        for(let i = 0; i <= 1;){
+            hotle_Reviw[i].style.color = 'yellow';
+            h_Amount.placeholder='Two Star Hotle';
+            i++;
+        }
+    }
+    if(hotle_Amount >= 150){
+       for(let i = 0; i <= 2;){
+        hotle_Reviw[i].style.color = 'yellow';
+           h_Amount.placeholder='Three Star Hotle';
+           i++;
+       }
+    }
+    if(hotle_Amount >= 200){
+        for(let i = 0; i <= 3;){
+            hotle_Reviw[i].style.color = 'yellow';
+            h_Amount.placeholder='Four Star Hotle';
+            i++;
+        }
+    }
+    if(hotle_Amount >= 250){
+        for(let i = 0; i <= 4;){
+            hotle_Reviw[i].style.color = 'yellow';
+            h_Amount.placeholder='Five Star Hotle';
+            i++;
+        }
+    }
+}
+// *********hotle Data Validation ****F*****
+let validation_Hotle_Data = (hotle_Name, hotle_Duration, hotle_Amount) => {
+  if(hotle_Name == '' || hotle_Duration == '' || hotle_Amount ==''){
+      alert('Empty Hotle Data !!!');
+  }
+  else {
+      if(!hotle_Name.match(/\d+/) && !hotle_Name.match(/[0-9!@#\$%\^\&*\)\(+=._-]{6,}$/g)){
+          hotleName.innerHTML = hotle_Name;
+          if(!hotle_Duration.match(/[a-zA-z!@#\$%\^\&*\)\(+=._-]{1,}$/g)){
+              hotleDuration.innerHTML = hotle_Duration;
+              if(!hotle_Amount.match(/[a-zA-Z!@#\$%\^\&*\)\(+=._-]{6,}$/g)){
+                  hottle_Reating_Validation(hotle_Amount);
+                  hotleAmount.innerHTML = hotle_Amount;
+                  // ***card_One**open
+                  let index = 2;
+                  book_Now_Menu_Card_F(index);
+              }
+              else{ 
+                  alert('$ demo Number place');
+              } 
+           }
+        }
+      }
+}
 // *********collect city Data ****Eent*****
 city_Submit_Btn.addEventListener('click', (e) => {
   e.preventDefault();
@@ -161,3 +226,19 @@ city_Submit_Btn.addEventListener('click', (e) => {
       input.value = '';
   })    
 })
+
+// *********hotle All card ****Event*****
+hotle_submit_Data_Btn.addEventListener('click', (e) => {
+  e.preventDefault();
+  let hotle_Name = hotle_card_form.hotleName.value;
+  let hotle_Duration = hotle_card_form.hotleDuration.value;
+  let hotle_Amount = hotle_card_form.hotleAmount.value;
+  // *****send this data in validation_Data()******
+  validation_Hotle_Data(hotle_Name,hotle_Duration, hotle_Amount);
+  let index = 2;
+  book_Now_Menu_Card_F(index);
+  // empty data fild
+  hotle_card_form.hotleName.value = '';
+  hotle_card_form.hotleDuration.value = '';
+  hotle_card_form.hotleAmount.value = '';
+});
