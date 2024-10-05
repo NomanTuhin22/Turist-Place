@@ -65,3 +65,47 @@ let close_booking_card_F = () => {
 }
 // **********close_book_card_btn E*******/
 card_close_btn.addEventListener('click', close_booking_card_F);
+
+// **********book_Now_Card_Active_F**********F*********
+let book_Now_Card_Active_F = (index) => {
+  document.querySelector('.active')?.classList.remove('active');
+  nav_Menu[index].classList.add('active');
+}
+// **********book_Now_Menu_F ***F****/
+let book_Now_Menu_Card_F = (index) => {
+  if(index == 0){
+      book_Now_Card_Active_F(index);
+      booking_Img.src='./assets/images/book_c.jpg';
+      book_Now_All_Card[index].style.display="block";
+      book_Now_All_Card[1].style.display="none";
+      book_Now_All_Card[2].style.display="none";
+  }
+  if(index == 1){
+      book_Now_Card_Active_F(index);
+      booking_Img.src='./assets/images/book_h.jpg';
+      book_Now_All_Card[index].style.display="block";
+      book_Now_All_Card[0].style.display="none";
+      book_Now_All_Card[2].style.display="none";
+  }
+  if(index == 2){
+      book_Now_Card_Active_F(index);
+      booking_Img.src='./assets/images/book_s.jpg';
+      book_Now_All_Card[index].style.display="block";
+      book_Now_All_Card[0].style.display="none";
+      book_Now_All_Card[1].style.display="none";
+  }
+  if(index == 3){
+      book_Now_Card_Active_F(index);
+      booking_Img.src='./assets/images/book-now-c.jpg';
+      book_Now_All_Card[index].style.display="block";
+      book_Now_All_Card[0].style.display="none";
+      book_Now_All_Card[1].style.display="none";    
+      book_Now_All_Card[2].style.display="none";
+  }
+}
+// ********book now card ul li [Acive]*********
+book_Now_Menu.forEach((value, index) => {
+  value.addEventListener('click', () => {
+      book_Now_Menu_Card_F(index);
+  })
+})
