@@ -297,6 +297,23 @@ destaination_menu.forEach((value, index) => {
       display_Function(index);
   })
 })
+// ************progress_Toggle_btn_F**************
+let progress_btn = document.querySelector('#review_Toggle i');
+let r_card_Display = () => {
+    let progress = document.querySelector('#progress_bar');
+    let a = progress.classList;
+    let b = Object.getOwnPropertyNames(a);
+    progress.classList.toggle('hide');
+    if(b[1]){
+        progress_btn.style.rotate = '360deg';
+    }
+    if(b[2]){
+        progress_btn.style.rotate = '180deg';
+    }
+}
+// review_Toggle**********Event*****
+review_Toggle.addEventListener('click', r_card_Display);
+
 // *********images_Select_Function**Event********
 list_images.forEach((value, index) => {
     value.addEventListener('click', () => {
