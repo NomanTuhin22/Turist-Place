@@ -109,3 +109,55 @@ book_Now_Menu.forEach((value, index) => {
       book_Now_Menu_Card_F(index);
   })
 })
+// ***************booking_Card[3]_Active C & P***********
+let booking_Card_Active = () => {
+  submit_btn.addEventListener('click', () => {
+      let index = 3;
+      book_Now_Menu_Card_F(index);
+  })
+}
+booking_Card_Active();
+// *********validation_city Data Validation *****F****
+let validation_Data = (visitor_Name, visiteId, cityName, stayTime) => {
+  if(visitor_Name == '' || visiteId == '' || cityName =='' || stayTime == ''){
+      alert('Empty Data !!!');
+  }
+  else {
+      if(!visitor_Name.match(/\d+/) && !visitor_Name.match(/[0-9!@#\$%\^\&*\)\(+=._-]{6,}$/g)){
+          visitor.innerHTML= visitor_Name;
+         if(!visiteId.match(/[!@#\$%\^\&*\)\(+=._-]{1,}$/g)){
+            visit_Id.innerHTML= visiteId;
+            if(!cityName.match(/[0-9!@#\$%\^\&*\)\(+=._-]{1,}$/g)){
+              city.innerHTML= cityName;
+              if(!stayTime.match(/[a-zA-Z\!@#\$%\^\&*\)\(+=._-]{1,}$/g)){
+                  stay_Time.innerHTML= stayTime;
+                  // ***card_One**open
+                  let index = 1;
+                  book_Now_Menu_Card_F(index);
+                  city_card.forEach((input) => {
+                      input.value = '';
+                  })
+              }
+              else{ 
+                  alert('Not Valid Data');
+              } 
+            }
+         }
+      }       
+  }
+}
+
+// *********collect city Data ****Eent*****
+city_Submit_Btn.addEventListener('click', (e) => {
+  e.preventDefault();
+  let visitor_Name = city_Card_form.name.value;
+  let visiteId = city_Card_form.visiteId.value;
+  let cityName = city_Card_form.cityName.value;
+  let stayTime = city_Card_form.stayTime.value;
+  // *****send this data in validation_Data()******
+  validation_Data(visitor_Name, visiteId, cityName, stayTime);
+  // all input value clear fild
+  city_card.forEach((input) => {
+      input.value = '';
+  })    
+})
