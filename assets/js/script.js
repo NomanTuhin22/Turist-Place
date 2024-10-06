@@ -473,3 +473,27 @@ let city_Data_F = (booking_City) => {
         }
     })
 }
+
+// *********book_Now list forEach()***Awesome Packages***
+book_Now.forEach((cityValue, index) => {
+    cityValue.addEventListener('click', () => {
+        if(index == 0){
+            let thailand = list_One[0].innerText;
+            loging_form[4].placeholder = thailand;
+            loging_form[4].value = thailand;
+            city_Data_F(index);
+        }
+        else if(index == 1){
+            let indonesia = list_Two[0].innerText;
+            loging_form[4].placeholder = indonesia;
+            loging_form[4].value = indonesia;
+            city_Data_F(index);
+        }
+        else if(index == 2){
+            let malaysia = list_Three[0].innerText;
+            loging_form[4].placeholder = malaysia;
+            loging_form[4].value = malaysia;
+            city_Data_F(index);
+        }
+     })    
+})
