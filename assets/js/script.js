@@ -71,6 +71,7 @@ let book_Now_Card_Active_F = (index) => {
   document.querySelector('.active')?.classList.remove('active');
   nav_Menu[index].classList.add('active');
 }
+
 // **********book_Now_Menu_F ***F****/
 let book_Now_Menu_Card_F = (index) => {
   if(index == 0){
@@ -320,6 +321,7 @@ rating_I.forEach((value) => {
         value.classList.add('reating_active');
     })
 })
+
 // ***********rating_Give_Function**********
 let rating_Give_Function = (value, index) => {
     for(let i = 0; i <= index; i++){
@@ -497,3 +499,37 @@ book_Now.forEach((cityValue, index) => {
         }
      })    
 })
+
+// ***************Testimonial Seletor********************
+let card_Slider = document.querySelector('#card_Slider');
+let slide = document.querySelector('.slide');
+let slides = document.querySelectorAll('.slide');
+let arrow_Btn = document.querySelectorAll('.main-container span i');
+// ***********Testimonial Seletor F**************
+let first_Card_Width = slide.offsetWidth;
+arrow_Btn.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        card_Slider.scrollLeft += btn.id ==="left_Btn" ? -first_Card_Width : first_Card_Width;
+    })
+})
+let isDragging = false, startX, startScrollLeft;
+let dragg_Mouse_Down = (e) => {
+    isDragging = true;
+    card_Slider.classList.add("dragging");
+    startX = e.pageX;
+    startScrollLeft = card_Slider.scrollLeft;
+}
+let dragging = (e) => {
+    if(!isDragging) return;
+    card_Slider.scrollLeft = startScrollLeft - (e.pageX -startX);
+}
+let dragStop = () => {
+    isDragging = false;
+    card_Slider.classList.remove("dragging");
+}
+// *******mouse down**********
+card_Slider.addEventListener("mousedown", dragg_Mouse_Down);
+// *******mouse dragging**********
+card_Slider.addEventListener("mousemove", dragging);
+// *******mouse dragStop**********
+card_Slider.addEventListener("mouseup", dragStop);
