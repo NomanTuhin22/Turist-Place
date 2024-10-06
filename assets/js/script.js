@@ -355,3 +355,121 @@ list_images.forEach((value, index) => {
         images_Select_Function(value, index);
     })
 })
+
+// ****************Awesome Packages and Loging book card*************
+let loging_form = document.querySelectorAll('#loging_form input');
+let book_Now_Loging = document.getElementById('book_Now_Loging');
+let awesome_Cards = document.querySelectorAll('.awesome-car-container .awesome-card');
+// ***list**
+let booking_Btn = document.querySelectorAll('.book-now');
+let booking_List = document.querySelectorAll('.list ul');
+let list_One = booking_List[0].children;
+let list_Two = booking_List[1].children;
+let list_Three = booking_List[2].children;
+let dolar = document.querySelectorAll('#dolor');
+let lorem_p = document.querySelectorAll('#lorem_P');
+let book_Now_btn = document.querySelectorAll('#book_Now_btn');
+// ******************thailand_F************
+let thailand_F = (booking_Time, booking_Person) => {
+    list_One[1].innerHTML = `${booking_Time} Day`;
+    list_One[2].innerHTML = `${booking_Person} Person`;
+    list_One[0].classList.add('menu_li');
+    list_One[1].classList.add('menu_li');
+    list_One[2].classList.add('menu_li');
+    let person = parseFloat(booking_Person);
+    let number = 149.00 + (person + 30);
+    dolar[0].innerHTML = `$${number}.00`;
+    lorem_p[0].innerHTML = `Booking`;
+    lorem_p[0].classList.add('lorem_P');
+    lorem_p[0].classList.add('loging_boking_p');
+    book_Now_btn[0].classList.add('hide');
+}
+
+// ******************indonesia_F************
+let indonesia_F = (booking_Time, booking_Person) => {
+    list_Two[1].innerHTML = `${booking_Time} Day`;
+    list_Two[2].innerHTML = `${booking_Person} Person`;
+    list_Two[0].classList.add('menu_li');
+    list_Two[1].classList.add('menu_li');
+    list_Two[2].classList.add('menu_li');
+    let person = parseFloat(booking_Person);
+    let number = 149.00 + (person + 25);
+    dolar[1].innerHTML = `$${number}.00`;
+    lorem_p[1].innerHTML = `Boking`;
+    lorem_p[1].classList.add('lorem_P');
+    lorem_p[1].classList.add('loging_boking_p');
+    book_Now_btn[1].classList.add('hide');
+}
+// ******************malaysia_F************
+let malaysia_F = (booking_Time, booking_Person) => {
+    list_Three[1].innerHTML = `${booking_Time} Day`;
+    list_Three[0].classList.add('menu_li');
+    list_Three[1].classList.add('menu_li');
+    list_Three[2].classList.add('menu_li');
+    list_Three[2].innerHTML = `${booking_Person} Person`;
+    let person = parseFloat(booking_Person);
+    let number = 149.00 + (person + 20);
+    dolar[2].innerHTML = `$${number}.00`;
+    lorem_p[2].innerHTML = `Boking`;
+    lorem_p[2].classList.add('lorem_P');
+    lorem_p[2].classList.add('loging_boking_p');
+    book_Now_btn[2].classList.add('hide');
+}
+
+// ******************awesome_Cars_F************
+let awesome_Cards_F = (booking_Time, booking_Person, booking_City) => {
+    let thailand_Index = 0;
+    let indonesia_Index = 1;
+    let malaysia_Index = 2;
+    // ********booking_C Card Event**************     
+    if(thailand_Index == booking_City){
+        thailand_F(booking_Time, booking_Person);
+        awesome_Cards[0].style.borderBottom= '5px solid #eab308';
+        awesome_Cards[1].style.borderBottom= 'none';
+        awesome_Cards[2].style.borderBottom= 'none';
+    }
+
+    else if(indonesia_Index == booking_City){
+        indonesia_F(booking_Time, booking_Person);
+        awesome_Cards[1].style.borderBottom= '5px solid #eab308';
+        awesome_Cards[0].style.borderBottom= 'none';
+        awesome_Cards[2].style.borderBottom= 'none';
+    }
+
+    else if(malaysia_Index == booking_City){
+        malaysia_F(booking_Time, booking_Person);
+        awesome_Cards[2].style.borderBottom= '5px solid #eab308';
+        awesome_Cards[0].style.borderBottom= 'none';
+        awesome_Cards[1].style.borderBottom= 'none';
+    }
+}
+
+// ********book_Now_Loging btn**************
+let book_Now = document.querySelectorAll('.book-now');
+let city_Data_F = (booking_City) => {
+    book_Now_Loging.addEventListener('click', (e) => {
+        e.preventDefault();
+        let user_Name = loging_form[0].value;
+        let booking_Email = loging_form[1].value;
+        let booking_Time = loging_form[2].value;
+        let booking_Person = loging_form[3].value;
+        if(user_Name == '' || booking_Email == '' || booking_Time =='' || booking_Person == ''){
+            alert('Empty Data !!!');
+        }
+        else if(!user_Name.match(/[0-9!@#\$%\^\&*\)\(+=._-]$/g)){
+            if(booking_Email.match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)){
+               if(!booking_Time.match(/[a-zA-Z\!@#\$%\^\&*\)\(+=._-]{1}$/g)){
+                if(!booking_Person.match(/[!@#\$%\^\&*\)\(+=._-]{1}$/g)){
+                    awesome_Cards_F(booking_Time, booking_Person, booking_City);
+                    loging_form[0].value = "";
+                    loging_form[1].value = "";
+                    loging_form[2].value = "";
+                    loging_form[3].value = "";
+                } 
+             }
+            }
+        }else{
+            alert('Not Match');
+        }
+    })
+}
